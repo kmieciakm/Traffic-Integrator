@@ -12,5 +12,9 @@ namespace Integrator.Model {
             Localization = localization;
             Speed = speed;
         }
+
+        public override string ToString() {
+            return Localization.ToString() + $" / Speed: {Speed} mph";
+        }
     }
 }

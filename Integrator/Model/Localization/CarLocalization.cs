@@ -9,5 +9,9 @@ namespace Integrator.Model.Localization {
         public CarLocalization(Coordinate coordinate) {
             Coordinate = coordinate;
         }
+
+        public override string ToString() {
+            return $"Latitude: {Coordinate.Latitude} / Longitude: {Coordinate.Longitude}";
+        }
     }
 }
