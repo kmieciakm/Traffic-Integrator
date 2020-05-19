@@ -1,39 +1,40 @@
 ﻿using Integrator;
 using Integrator.Model;
 using Integrator.Model.Localization;
+using Integrator.TrafficIntensity;
+using Integrator.Utility;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace Supplier.Model {
     public class AiT : ITrafficSupplier {
-        private IEnumerable<CarData> _Cars {
-            get {
-                return new List<CarData> {
-                    new CarData(
-                        new CarLocalization(new Coordinate(51.75296M, 19.46319M)),
-                        2.34f),
-                    new CarData(
-                        new CarLocalization(new Coordinate(51.75147M, 19.46422M)),
-                        3.56f),
-                    new CarData(
-                        new CarLocalization(new Coordinate(51.75291M, 19.46412M)),
-                        2.12f)
-                };
-            }
+        private string _DbPath { get; set; }
+
+        public IEnumerable<CarData> Cars { get; private set; }
+
+        public AiT( string path ) {
+            _DbPath = path;
+            LoadData();
         }
 
-        public IEnumerable<CarData> GetAllCars() {
-            return _Cars.ToList();
+        private void LoadData() {
+            Cars = JsonConvert.DeserializeObject<IEnumerable<CarData>>(
+                    File.ReadAllText(_DbPath)
+                );
         }
 
         public IEnumerable<CarData> GetCarsAt( ILocalization localization ) {
-            throw new NotImplementedException();
+            return GetCarsWithAccuracy(localization, TrafficIntensityIntegrator.DefaultAccuracy);
         }
 
         public IEnumerable<CarData> GetCarsWithAccuracy( ILocalization localization, float accuracy ) {
-            throw new NotImplementedException();
+            return Cars
+                .Where(
+                    car => Distance.LocalizationDistance(localization, car.Localization) < accuracy)
+                .ToList();
         }
     }
 }

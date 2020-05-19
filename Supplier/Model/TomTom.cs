@@ -6,9 +6,7 @@ using System.Collections.Generic;
 
 namespace Supplier.Model {
     public class TomTom : ITrafficSupplier {
-        public IEnumerable<CarData> GetAllCars() {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<CarData> Cars => throw new NotImplementedException();
 
         public IEnumerable<CarData> GetCarsAt( ILocalization localization ) {
             throw new NotImplementedException();

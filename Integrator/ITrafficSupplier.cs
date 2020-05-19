@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Integrator {
     public interface ITrafficSupplier {
-        IEnumerable<CarData> GetAllCars();
+        IEnumerable<CarData> Cars { get; }
         IEnumerable<CarData> GetCarsAt(ILocalization localization);
         IEnumerable<CarData> GetCarsWithAccuracy(ILocalization localization, float accuracy);
     }

@@ -13,5 +13,14 @@ namespace Integrator.Model.Localization {
         public override string ToString() {
             return $"Latitude: {Coordinate.Latitude} / Longitude: {Coordinate.Longitude}";
         }
+
+        public override bool Equals( object obj ) {
+            return obj is CarLocalization localization &&
+                   EqualityComparer<Coordinate>.Default.Equals(Coordinate, localization.Coordinate);
+        }
+
+        public override int GetHashCode() {
+            return -1638168797 + EqualityComparer<Coordinate>.Default.GetHashCode(Coordinate);
+        }
     }
 }

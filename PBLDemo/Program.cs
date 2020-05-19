@@ -4,13 +4,15 @@ using Integrator.TrafficIntensity;
 using Supplier.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace PBLDemo {
     class Program {
         static void Main( string[] args ) {
-            Yanosik yanosik = new Yanosik();
-            List<CarData> cars = yanosik.GetAllCars().ToList();
+            string yanosikDbPath = Path.Combine(Environment.CurrentDirectory, @"Data\", "yanosikDb.json");
+            Yanosik yanosik = new Yanosik(yanosikDbPath);
+            List<CarData> cars = yanosik.Cars.ToList();
 
             Console.WriteLine("---------------------");
             Console.WriteLine("Yanosik data");
@@ -18,8 +20,9 @@ namespace PBLDemo {
                 Console.WriteLine(car);
             }
 
-            AiT ait = new AiT();
-            List<CarData> carsAit = ait.GetAllCars().ToList();
+            string aitDbPath = Path.Combine(Environment.CurrentDirectory, @"Data\", "aitDb.json");
+            AiT ait = new AiT(aitDbPath);
+            List<CarData> carsAit = ait.Cars.ToList();
 
             Console.WriteLine();
             Console.WriteLine("---------------------");
@@ -29,8 +32,8 @@ namespace PBLDemo {
             }
 
             TrafficIntensityIntegrator integrator = new TrafficIntensityIntegrator(new List<ITrafficSupplier>() {
-                new Yanosik(),
-                new AiT() 
+                new Yanosik(yanosikDbPath),
+                new AiT(aitDbPath) 
             });
 
             Console.WriteLine();
