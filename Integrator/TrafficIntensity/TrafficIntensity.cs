@@ -25,7 +25,7 @@ namespace Integrator.TrafficIntensity {
             return _Cars.ToList();
         }
 
-        public float GetAverageSpeed() {
+        public double GetAverageSpeed() {
             return _Cars.Select(car => car.Speed).Average();
         }
     }

@@ -64,8 +64,9 @@ namespace PBLDemoTest.Integrator {
                         mockSupplierTwo.Object
                     }
                 );
-            Assert.Equal(expectedCarsSet, integrator.GetTraffic().GetCars());
+            Assert.Equal(expectedCarsSet, integrator.GetTrafficIntensity().GetCars());
         }
+
     }
 
 }

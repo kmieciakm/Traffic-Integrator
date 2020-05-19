@@ -6,9 +6,9 @@ using System.Text;
 namespace Integrator.Model {
     public class CarData : ICarData {
         public CarLocalization Localization { get; set; }
-        public float Speed { get; set; }
+        public double Speed { get; set; }
 
-        public CarData( CarLocalization localization, float speed ) {
+        public CarData( CarLocalization localization, double speed ) {
             Localization = localization;
             Speed = speed;
         }

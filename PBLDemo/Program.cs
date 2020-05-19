@@ -10,7 +10,7 @@ using System.Linq;
 namespace PBLDemo {
     class Program {
         static void Main( string[] args ) {
-            string yanosikDbPath = Path.Combine(Environment.CurrentDirectory, @"Data\", "yanosikDb.json");
+            string yanosikDbPath = Path.Combine(Environment.CurrentDirectory, @"Data\", "yanosikDbGPS.json");
             Yanosik yanosik = new Yanosik(yanosikDbPath);
             List<CarData> cars = yanosik.Cars.ToList();
 
@@ -39,11 +39,11 @@ namespace PBLDemo {
             Console.WriteLine();
             Console.WriteLine("---------------------");
             Console.WriteLine("Integrated data");
-            foreach (var car in integrator.GetTraffic().GetCars()) {
+            foreach (var car in integrator.GetTrafficIntensity().GetCars()) {
                 Console.WriteLine(car);
             }
-            Console.WriteLine($"Cars amount: {integrator.GetTraffic().GetCarsAmount()}");
-            Console.WriteLine($"Average speed: {integrator.GetTraffic().GetAverageSpeed()}");
+            Console.WriteLine($"Cars amount: {integrator.GetTrafficIntensity().GetCarsAmount()}");
+            Console.WriteLine($"Average speed: {integrator.GetTrafficIntensity().GetAverageSpeed()}");
             Console.WriteLine();
         }
     }

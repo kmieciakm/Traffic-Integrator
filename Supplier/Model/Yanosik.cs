@@ -1,6 +1,9 @@
 ﻿using Integrator;
 using Integrator.Model;
 using Integrator.Model.Localization;
+using Integrator.Model.Localization.Utility;
+using Integrator.TrafficIntensity;
+using Integrator.Utility;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,45 +16,50 @@ namespace Supplier.Model {
 
         public IEnumerable<CarData> Cars { get; private set; }
 
-        public Yanosik(string path) {
+        public Yanosik( string path ) {
             _DbPath = path;
-            if (!File.Exists(_DbPath)) {
-                SeedData();
-            }
             LoadData();
         }
 
         private void LoadData() {
-            Cars = JsonConvert.DeserializeObject<IEnumerable<CarData>>(
+            var yanosikCars = JsonConvert.DeserializeObject<IEnumerable<YanosikCar>>(
                     File.ReadAllText(_DbPath)
                 );
-        }
-
-        private void SeedData() {
-            Cars = new List<CarData> {
-                new CarData(
-                    new CarLocalization(new Coordinate(34.43422, 45.12312)),
-                    21.92f),
-                new CarData(
-                    new CarLocalization(new Coordinate(-34.75431, 89.34210)),
-                    30.56f),
-                new CarData(
-                    new CarLocalization(new Coordinate(21.34391, 32.12902)),
-                    26.34f)
-            };
-            var obj = JsonConvert.SerializeObject(Cars);
-            if (!File.Exists(_DbPath)) {
-                using (var stream = File.Create(_DbPath)) {}
+            List<CarData> cars = new List<CarData>();
+            foreach (var car in yanosikCars) {
+                cars.Add(CarMapper.YanosikCarToCarData(car));
             }
-            File.WriteAllText(_DbPath, obj);
+            Cars = cars;
         }
 
         public IEnumerable<CarData> GetCarsAt( ILocalization localization ) {
-            throw new NotImplementedException();
+            return GetCarsWithAccuracy(localization, TrafficIntensityIntegrator.DefaultAccuracy);
         }
 
         public IEnumerable<CarData> GetCarsWithAccuracy( ILocalization localization, float accuracy ) {
-            throw new NotImplementedException();
+            return Cars
+                .Where(
+                    car => Distance.LocalizationDistance(localization, car.Localization) < accuracy)
+                .ToList();
+        }
+    }
+
+    public class YanosikCar {
+        public GPSCoordinates GPSCoordinates { get; set; }
+        public double Speed { get; set; }
+
+        public YanosikCar( GPSCoordinates gPSCoordinates, double speed ) {
+            GPSCoordinates = gPSCoordinates;
+            Speed = speed;
+        }
+    }
+
+    public static class CarMapper {
+        public static CarData YanosikCarToCarData( YanosikCar yanosikCar ) {
+            return new CarData(
+                    new CarLocalization(Coordinates.GPSToLatLong(yanosikCar.GPSCoordinates)),
+                    yanosikCar.Speed
+                );
         }
     }
 }

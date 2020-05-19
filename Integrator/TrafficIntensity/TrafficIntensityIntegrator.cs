@@ -18,7 +18,7 @@ namespace Integrator.TrafficIntensity {
             return _Suppliers.Count();
         }
 
-        public TrafficIntensity GetTraffic() {
+        public TrafficIntensity GetTrafficIntensity() {
             List<ICarData> allCars = new List<ICarData>();
             foreach (var supplier in _Suppliers) {
                 allCars.AddRange(supplier.Cars);

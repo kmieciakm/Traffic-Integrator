@@ -7,7 +7,7 @@ namespace Integrator.TrafficIntensity {
         int Accuracy { get; }
         ILocalization SeedPoint { get; }
 
-        float GetAverageSpeed();
+        double GetAverageSpeed();
         IEnumerable<ICarData> GetCars();
         int GetCarsAmount();
     }
