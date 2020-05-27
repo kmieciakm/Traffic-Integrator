@@ -1,0 +1,71 @@
+[
+    {
+        "Localization": {
+            "Coordinate": {
+                "Longitude": 31.75296,
+                "Latitude": 19.46319
+            }
+        },
+        "StartingPoint": {
+            "Name":  "",
+            "Coordinate": {
+                "Longitude": 32.75296,
+                "Latitude": 20.46319
+            }
+        },
+        "EndingPoint": {
+            "Name": "",
+            "Coordinate": {
+                "Longitude": 30.75296,
+                "Latitude": 18.46319
+            }
+        },
+        "Speed": 3.12
+    },
+    {
+        "Localization": {
+            "Coordinate": {
+                "Longitude": 81.75147,
+                "Latitude": 19.46422
+            }
+        },
+        "StartingPoint": {
+            "Name": "",
+            "Coordinate": {
+                "Longitude": 81.11111,
+                "Latitude": 19.22222
+            }
+        },
+        "EndingPoint": {
+            "Name": "",
+            "Coordinate": {
+                "Longitude": 81.99999,
+                "Latitude": 20.00002
+            }
+        },
+        "Speed": 2.5
+    },
+    {
+        "Localization": {
+            "Coordinate": {
+                "Longitude": 79.34391,
+                "Latitude": 19.12902
+            }
+        },
+        "StartingPoint": {
+            "Name": "",
+            "Coordinate": {
+                "Longitude": 78.57621,
+                "Latitude": 19.24345
+            }
+        },
+        "EndingPoint": {
+            "Name": "",
+            "Coordinate": {
+                "Longitude": 81.99999,
+                "Latitude": 20.00002
+            }
+        },
+        "Speed": 4.22
+    }
+]

@@ -1,0 +1,47 @@
+[
+    {
+        "GPSCoordinates": {
+            "Longitude": {
+                "Degree": 12,
+                "Minute": 34,
+                "Second": 6.3984,
+                "Compass": 2
+            },
+            "Latitude": {
+                "Degree": 3,
+                "Minute": 12,
+                "Second": 45.23,
+                "Compass": 0
+            }
+        },
+        "StartingPoint": {
+            "Longitude": {
+                "Degree": 12,
+                "Minute": 34,
+                "Second": 6.3984,
+                "Compass": 2
+            },
+            "Latitude": {
+                "Degree": 3,
+                "Minute": 12,
+                "Second": 45.23,
+                "Compass": 0
+            }
+        },
+        "EndingPoint": {
+            "Longitude": {
+                "Degree": 12,
+                "Minute": 34,
+                "Second": 6.3984,
+                "Compass": 2
+            },
+            "Latitude": {
+                "Degree": 3,
+                "Minute": 12,
+                "Second": 45.23,
+                "Compass": 0
+            }
+        },
+        "Speed": 24.8
+    }
+]
