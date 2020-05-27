@@ -7,5 +7,7 @@ namespace Integrator.Model {
     public interface ICarData {
         CarLocalization Localization { get; set; }
         double Speed { get; set; }
+        PlaceLocalization StartingPoint { get; set; }
+        PlaceLocalization EndingPoint { get; set; }
     }
 }

@@ -30,24 +30,36 @@ namespace PBLDemoTest.Integrator {
             List<CarData> carsSetOne = new List<CarData> {
                 new CarData(
                     new CarLocalization(new Coordinate(34.43422, 45.12312)),
-                    21.92f),
+                    21.92f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312))),
                 new CarData(
                     new CarLocalization(new Coordinate(-34.75431, 89.34210)),
-                    30.56f),
+                    30.56f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312))),
                 new CarData(
                     new CarLocalization(new Coordinate(21.34391, 32.12902)),
-                    26.34f)
+                    26.34f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)))
             };
             List<CarData> carsSetTwo = new List<CarData> {
                 new CarData(
                     new CarLocalization(new Coordinate(24.43422, 25.12312)),
-                    21.92f),
+                    21.92f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312))),
                 new CarData(
                     new CarLocalization(new Coordinate(-24.75431, 29.34210)),
-                    30.56f),
+                    30.56f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312))),
                 new CarData(
                     new CarLocalization(new Coordinate(21.34391, 22.12902)),
-                    26.34f)
+                    26.34f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)))
             };
             List<CarData> expectedCarsSet = new List<CarData>();
             expectedCarsSet.AddRange(carsSetOne);

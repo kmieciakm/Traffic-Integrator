@@ -8,7 +8,6 @@
   <ItemGroup>
     <Content Include="bin\Debug\netcoreapp3.1\Data\aitDb.json" />
     <Content Include="bin\Debug\netcoreapp3.1\Data\yanosikDbGPS.json" />
-    <Content Include="bin\Debug\netcoreapp3.1\Data\yanosikDb.json" />
   </ItemGroup>
 
   <ItemGroup>

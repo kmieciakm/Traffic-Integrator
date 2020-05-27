@@ -47,10 +47,15 @@ namespace Supplier.Model {
     public class YanosikCar {
         public GPSCoordinates GPSCoordinates { get; set; }
         public double Speed { get; set; }
+        public GPSCoordinates StartingPoint { get; set; }
+        public GPSCoordinates EndingPoint { get; set; }
 
-        public YanosikCar( GPSCoordinates gPSCoordinates, double speed ) {
-            GPSCoordinates = gPSCoordinates;
+        public YanosikCar( GPSCoordinates gpsCoordinates, double speed,
+                GPSCoordinates startingPoint, GPSCoordinates endingPoint) {
+            GPSCoordinates = gpsCoordinates;
             Speed = speed;
+            StartingPoint = startingPoint;
+            EndingPoint = endingPoint;
         }
     }
 
@@ -58,7 +63,9 @@ namespace Supplier.Model {
         public static CarData YanosikCarToCarData( YanosikCar yanosikCar ) {
             return new CarData(
                     new CarLocalization(Coordinates.GPSToLatLong(yanosikCar.GPSCoordinates)),
-                    yanosikCar.Speed
+                    yanosikCar.Speed,
+                    new PlaceLocalization(Coordinates.GPSToLatLong(yanosikCar.StartingPoint)),
+                    new PlaceLocalization(Coordinates.GPSToLatLong(yanosikCar.EndingPoint))
                 );
         }
     }

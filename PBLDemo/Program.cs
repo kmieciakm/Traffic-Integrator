@@ -16,6 +16,7 @@ namespace PBLDemo {
 
             Console.WriteLine("---------------------");
             Console.WriteLine("Yanosik data");
+            Console.WriteLine();
             foreach (var car in cars) {
                 Console.WriteLine(car);
             }
@@ -27,6 +28,7 @@ namespace PBLDemo {
             Console.WriteLine();
             Console.WriteLine("---------------------");
             Console.WriteLine("AiT data");
+            Console.WriteLine();
             foreach (var car in carsAit) {
                 Console.WriteLine(car);
             }
@@ -39,6 +41,7 @@ namespace PBLDemo {
             Console.WriteLine();
             Console.WriteLine("---------------------");
             Console.WriteLine("Integrated data");
+            Console.WriteLine();
             foreach (var car in integrator.GetTrafficIntensity().GetCars()) {
                 Console.WriteLine(car);
             }

@@ -11,7 +11,7 @@ namespace Integrator.Model.Localization {
         }
 
         public override string ToString() {
-            return $"Latitude: {Coordinate.Latitude} / Longitude: {Coordinate.Longitude}";
+            return $"Localization: ({Coordinate.Latitude}, {Coordinate.Longitude})";
         }
 
         public override bool Equals( object obj ) {

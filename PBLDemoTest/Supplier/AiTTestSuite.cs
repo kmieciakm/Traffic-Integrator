@@ -25,13 +25,19 @@ namespace PBLDemoTest.Supplier {
             List<CarData> cars = new List<CarData> {
                 new CarData(
                     new CarLocalization(new Coordinate(34.43422, 45.12312)),
-                    21.92f),
+                    21.92f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312))),
                 new CarData(
                     new CarLocalization(new Coordinate(-34.75431, 89.34210)),
-                    30.56f),
+                    30.56f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312))),
                 new CarData(
                     new CarLocalization(new Coordinate(21.34391, 32.12902)),
-                    26.34f)
+                    26.34f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)))
             };
             _Fixture.SaveToFile(cars);
 
@@ -45,21 +51,31 @@ namespace PBLDemoTest.Supplier {
             List<CarData> cars = new List<CarData> {
                 new CarData(
                     new CarLocalization(new Coordinate(34.43422, 45.12332)),
-                    21.92f),
+                    21.92f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312))),
                 new CarData(
                     new CarLocalization(new Coordinate(34.43452, 45.12312)),
-                    30.56f),
+                    30.56f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312))),
                 new CarData(
                     new CarLocalization(new Coordinate(21.34391, 32.12902)),
-                    26.34f)
+                    26.34f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)))
             };
             List<CarData> carsExpected = new List<CarData> {
                 new CarData(
                     new CarLocalization(new Coordinate(34.43422, 45.12332)),
-                    21.92f),
+                    21.92f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312))),
                 new CarData(
                     new CarLocalization(new Coordinate(34.43452, 45.12312)),
-                    30.56f)
+                    30.56f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)))
             };
             _Fixture.SaveToFile(cars);
 
@@ -76,21 +92,31 @@ namespace PBLDemoTest.Supplier {
             List<CarData> cars = new List<CarData> {
                 new CarData(
                     new CarLocalization(new Coordinate(34.43422, 45.12132)),
-                    21.92f),
+                    21.92f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312))),
                 new CarData(
                     new CarLocalization(new Coordinate(34.42852, 45.12312)),
-                    30.56f),
+                    30.56f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312))),
                 new CarData(
                     new CarLocalization(new Coordinate(34.53452, 45.15682)),
-                    26.34f)
+                    26.34f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)))
             };
             List<CarData> carsExpected = new List<CarData> {
                 new CarData(
                     new CarLocalization(new Coordinate(34.43422, 45.12132)),
-                    21.92f),
+                    21.92f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312))),
                 new CarData(
                     new CarLocalization(new Coordinate(34.42852, 45.12312)),
-                    30.56f)
+                    30.56f,
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)),
+                    new PlaceLocalization(new Coordinate(34.43422, 45.12312)))
             };
             _Fixture.SaveToFile(cars);
 
