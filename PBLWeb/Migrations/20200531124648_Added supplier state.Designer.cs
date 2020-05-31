@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PBLWeb.Data;
 
 namespace PBLWeb.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20200531124648_Added supplier state")]
+    partial class Addedsupplierstate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

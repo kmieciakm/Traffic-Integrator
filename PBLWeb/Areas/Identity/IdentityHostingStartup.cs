@@ -14,14 +14,7 @@ namespace PBLWeb.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
-                services.AddDbContext<DBContext>(options =>
-                    options.UseSqlite(
-                        context.Configuration.GetConnectionString("DBContextConnection")));
-
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                    .AddEntityFrameworkStores<DBContext>();
-            });
+            
         }
     }
 }

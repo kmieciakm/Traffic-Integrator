@@ -8,7 +8,7 @@ using PBLWeb.Data;
 
 namespace PBLWeb.Migrations
 {
-    [DbContext(typeof(DBContext))]
+    [DbContext(typeof(AppDBContext))]
     [Migration("20200531115229_AddSupplierData")]
     partial class AddSupplierData
     {

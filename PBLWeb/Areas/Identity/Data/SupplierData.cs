@@ -12,6 +12,10 @@ namespace PBLWeb.Data {
         [MinLength(5), MaxLength(50)]
         public string Name { get; set; }
         [Required]
+        [Display(Name="Api")]
         public string ApiUrl { get; set; }
+        [Required]
+        [Display(Name = "Status")]
+        public bool Active { get; set; }
     }
 }

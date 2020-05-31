@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PBLWeb.Data
 {
-    public class DBContext : IdentityDbContext<IdentityUser>
+    public class AppDBContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<SupplierData> Suppliers { get; set; }
 
-        public DBContext(DbContextOptions<DBContext> options)
+        public AppDBContext(DbContextOptions<AppDBContext> options)
             : base(options)
         {
         }

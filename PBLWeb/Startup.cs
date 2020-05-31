@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PBLWeb.Areas.Identity.Repository;
+using PBLWeb.Data;
 using PBLWeb.Services;
 using Supplier.Model;
 
@@ -26,7 +30,16 @@ namespace PBLWeb {
         public void ConfigureServices( IServiceCollection services ) {
             services.AddControllersWithViews();
             services.AddApiVersioning();
-                
+
+            services.AddDbContext<AppDBContext>(options =>
+                options.UseSqlite(
+                    Configuration.GetConnectionString("DBContextConnection")));
+
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddEntityFrameworkStores<AppDBContext>();
+
+            services.AddScoped<SupplierDataRepository>();
+
             services.AddScoped(provider =>
             {
                 return new SupplierService<Yanosik>(
