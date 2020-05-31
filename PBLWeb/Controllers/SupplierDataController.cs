@@ -14,10 +14,10 @@ namespace PBLWeb.Controllers
     public class SupplierDataController : Controller
     {
         private ILogger<SupplierDataController> _Logger { get; }
-        private SupplierDataRepository _SupplierRepo { get; }
+        private ISupplierDataRepository _SupplierRepo { get; }
 
         public SupplierDataController( ILogger<SupplierDataController> logger,
-            SupplierDataRepository supplierRepo)
+            ISupplierDataRepository supplierRepo)
         {
             _Logger = logger;
             _SupplierRepo = supplierRepo;

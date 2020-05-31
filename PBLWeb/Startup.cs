@@ -30,6 +30,7 @@ namespace PBLWeb {
         public void ConfigureServices( IServiceCollection services ) {
             services.AddControllersWithViews();
             services.AddApiVersioning();
+            services.AddHttpClient();
 
             services.AddDbContext<AppDBContext>(options =>
                 options.UseSqlite(
@@ -38,7 +39,7 @@ namespace PBLWeb {
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<AppDBContext>();
 
-            services.AddScoped<SupplierDataRepository>();
+            services.AddScoped<ISupplierDataRepository, SupplierDataRepository>();
 
             services.AddScoped(provider =>
             {

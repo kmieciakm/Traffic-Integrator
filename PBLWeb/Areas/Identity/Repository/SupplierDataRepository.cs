@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace PBLWeb.Areas.Identity.Repository {
-    public class SupplierDataRepository {
+    public class SupplierDataRepository : ISupplierDataRepository {
         private AppDBContext _Context { get; }
 
         public SupplierDataRepository( AppDBContext context ) {
@@ -16,7 +16,11 @@ namespace PBLWeb.Areas.Identity.Repository {
             return _Context.Suppliers.ToList();
         }
 
-        public SupplierData GetSupplierById(int id) {
+        public IEnumerable<SupplierData> GetActiveSuppliers() {
+            return _Context.Suppliers.Where(s => s.Active).ToList();
+        }
+
+        public SupplierData GetSupplierById( int id ) {
             return _Context.Suppliers.FirstOrDefault(s => s.Id == id);
         }
 
