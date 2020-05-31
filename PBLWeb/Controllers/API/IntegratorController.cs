@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Integrator.Model;
+using Integrator.Model.Localization;
 using Integrator.TrafficIntensity;
 using Microsoft.AspNetCore.Mvc;
 using PBLWeb.Areas.Identity.Repository;
@@ -44,6 +46,26 @@ namespace PBLWeb.Controllers.API {
             );
         }
 
+        [HttpGet("intensity/{latitude:double}/{longitude:double}")]
+        public ActionResult<TrafficIntensityViewModel> GetIntensityAt( double latitude, double longitude ) {
+            var localization = new CarLocalization(
+                new Coordinate(latitude, longitude)
+            );
+            return new TrafficIntensityViewModel(
+                _Integrator.GetTrafficIntensityAt(localization)
+            );
+        }
+
+        [HttpGet("intensity/{latitude:double}/{longitude:double}/{accuracy:int}")]
+        public ActionResult<TrafficIntensityViewModel> GetIntensityWithAccuracy( double latitude, double longitude, int accuracy ) {
+            var localization = new CarLocalization(
+                new Coordinate(latitude, longitude)
+            );
+            return new TrafficIntensityViewModel(
+                _Integrator.GetTrafficIntensityWithAccuracy(localization, accuracy)
+            );
+        }
+
         [HttpGet("cars")]
         public ActionResult<IEnumerable<ICarData>> GetAllCars() {
             return new List<ICarData>(
@@ -53,12 +75,22 @@ namespace PBLWeb.Controllers.API {
 
         [HttpGet("cars/{latitude:double}/{longitude:double}")]
         public ActionResult<IEnumerable<ICarData>> GetCarsAt( double latitude, double longitude ) {
-            throw new NotImplementedException();
+            var localization = new CarLocalization(
+                new Coordinate(latitude, longitude)
+            );
+            return new List<ICarData>(
+                _Integrator.GetTrafficIntensityAt(localization).GetCars()
+            );
         }
 
         [HttpGet("cars/{latitude:double}/{longitude:double}/{accuracy:int}")]
         public ActionResult<IEnumerable<ICarData>> GetCarsWithAccuracy( double latitude, double longitude, int accuracy ) {
-            throw new NotImplementedException();
+            var localization = new CarLocalization(
+                new Coordinate(latitude, longitude)
+            );
+            return new List<ICarData>(
+                _Integrator.GetTrafficIntensityWithAccuracy(localization, accuracy).GetCars()
+            );
         }
     }
 }

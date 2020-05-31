@@ -39,11 +39,27 @@ namespace PBLWeb.Models {
         }
 
         public IEnumerable<CarData> GetCarsAt( ILocalization localization ) {
-            throw new NotImplementedException();
+            var request = new HttpRequestMessage(HttpMethod.Get, 
+                $"{_SupplierData.ApiUrl}/cars/{localization.Coordinate.Latitude}/{localization.Coordinate.Longitude}");
+            var client = _ClientFactory.CreateClient();
+            var response = client.SendAsync(request).Result;
+
+            string json = response.Content.ReadAsStringAsync().Result;
+            var data = JsonConvert.DeserializeObject<IEnumerable<CarData>>(json);
+
+            return data;
         }
 
-        public IEnumerable<CarData> GetCarsWithAccuracy( ILocalization localization, float accuracy ) {
-            throw new NotImplementedException();
+        public IEnumerable<CarData> GetCarsWithAccuracy( ILocalization localization, int accuracy ) {
+            var request = new HttpRequestMessage(HttpMethod.Get,
+                $"{_SupplierData.ApiUrl}/cars/{localization.Coordinate.Latitude}/{localization.Coordinate.Longitude}/{accuracy}");
+            var client = _ClientFactory.CreateClient();
+            var response = client.SendAsync(request).Result;
+
+            string json = response.Content.ReadAsStringAsync().Result;
+            var data = JsonConvert.DeserializeObject<IEnumerable<CarData>>(json);
+
+            return data;
         }
     }
 }

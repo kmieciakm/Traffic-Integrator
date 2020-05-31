@@ -37,7 +37,7 @@ namespace Integrator.TrafficIntensity {
         public TrafficIntensity GetTrafficIntensityWithAccuracy( ILocalization localization, int accuracy ) {
             List<ICarData> allCars = new List<ICarData>();
             foreach (var supplier in _Suppliers) {
-                allCars.AddRange(supplier.GetCarsAt(localization));
+                allCars.AddRange(supplier.GetCarsWithAccuracy(localization, accuracy));
             }
             return new TrafficIntensity(localization, accuracy, allCars);
         }

@@ -36,7 +36,7 @@ namespace Supplier.Model {
             return GetCarsWithAccuracy(localization, TrafficIntensityIntegrator.DefaultAccuracy);
         }
 
-        public IEnumerable<CarData> GetCarsWithAccuracy( ILocalization localization, float accuracy ) {
+        public IEnumerable<CarData> GetCarsWithAccuracy( ILocalization localization, int accuracy ) {
             return Cars
                 .Where(
                     car => Distance.LocalizationDistance(localization, car.Localization) < accuracy)

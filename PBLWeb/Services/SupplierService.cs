@@ -22,7 +22,7 @@ namespace PBLWeb.Services {
             return _Supplier.GetCarsAt(localization);
         }
 
-        public IEnumerable<CarData> GetCarsWithAccuracy( ILocalization localization, float accuracy ) {
+        public IEnumerable<CarData> GetCarsWithAccuracy( ILocalization localization, int accuracy ) {
             return _Supplier.GetCarsWithAccuracy(localization, accuracy);
         }
     }

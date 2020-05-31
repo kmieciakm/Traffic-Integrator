@@ -12,7 +12,7 @@ namespace Supplier.Model {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<CarData> GetCarsWithAccuracy( ILocalization localization, float accuracy ) {
+        public IEnumerable<CarData> GetCarsWithAccuracy( ILocalization localization, int accuracy ) {
             throw new NotImplementedException();
         }
     }

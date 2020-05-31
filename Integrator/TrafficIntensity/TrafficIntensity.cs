@@ -26,6 +26,9 @@ namespace Integrator.TrafficIntensity {
         }
 
         public double GetAverageSpeed() {
+            if (Cars.Count() <= 0) {
+                return 0.0;
+            }
             return Cars.Select(car => car.Speed).Average();
         }
     }
