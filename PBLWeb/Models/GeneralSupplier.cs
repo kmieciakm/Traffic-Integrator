@@ -16,7 +16,7 @@ namespace PBLWeb.Models {
         private IHttpClientFactory _ClientFactory { get; set; }
 
         public GeneralSupplier( SupplierData supplierData,
-                IHttpClientFactory clientFactory) {
+                IHttpClientFactory clientFactory ) {
             _SupplierData = supplierData;
             _ClientFactory = clientFactory;
         }
@@ -32,22 +32,30 @@ namespace PBLWeb.Models {
             var client = _ClientFactory.CreateClient();
             var response = client.SendAsync(request).Result;
 
-            string json = await response.Content.ReadAsStringAsync();
-            var data = JsonConvert.DeserializeObject<IEnumerable<CarData>>(json);
+            if (response.IsSuccessStatusCode) {
+                string json = await response.Content.ReadAsStringAsync();
+                var data = JsonConvert.DeserializeObject<IEnumerable<CarData>>(json);
 
-            return data;
+                return data;
+            }
+
+            return new List<CarData>();
         }
 
         public IEnumerable<CarData> GetCarsAt( ILocalization localization ) {
-            var request = new HttpRequestMessage(HttpMethod.Get, 
+            var request = new HttpRequestMessage(HttpMethod.Get,
                 $"{_SupplierData.ApiUrl}/cars/{localization.Coordinate.Latitude}/{localization.Coordinate.Longitude}");
             var client = _ClientFactory.CreateClient();
             var response = client.SendAsync(request).Result;
 
-            string json = response.Content.ReadAsStringAsync().Result;
-            var data = JsonConvert.DeserializeObject<IEnumerable<CarData>>(json);
+            if (response.IsSuccessStatusCode) {
+                string json = response.Content.ReadAsStringAsync().Result;
+                var data = JsonConvert.DeserializeObject<IEnumerable<CarData>>(json);
 
-            return data;
+                return data;
+            }
+
+            return new List<CarData>();
         }
 
         public IEnumerable<CarData> GetCarsWithAccuracy( ILocalization localization, int accuracy ) {
@@ -56,10 +64,14 @@ namespace PBLWeb.Models {
             var client = _ClientFactory.CreateClient();
             var response = client.SendAsync(request).Result;
 
-            string json = response.Content.ReadAsStringAsync().Result;
-            var data = JsonConvert.DeserializeObject<IEnumerable<CarData>>(json);
+            if (response.IsSuccessStatusCode) {
+                string json = response.Content.ReadAsStringAsync().Result;
+                var data = JsonConvert.DeserializeObject<IEnumerable<CarData>>(json);
 
-            return data;
+                return data;
+            }
+
+            return new List<CarData>();
         }
     }
 }
