@@ -10,6 +10,7 @@ using Integrator.TrafficIntensity;
 using Microsoft.AspNetCore.Mvc;
 using PBLWeb.Areas.Identity.Repository;
 using PBLWeb.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace PBLWeb.Controllers.API {
     [ApiVersion("1.0")]
@@ -40,6 +41,7 @@ namespace PBLWeb.Controllers.API {
         }
 
         [HttpGet("intensity")]
+        [SwaggerOperation(Summary = "Get all cars and additional analysis information")]
         public ActionResult<TrafficIntensityViewModel> GetIntensity() {
             return new TrafficIntensityViewModel(
                 _Integrator.GetTrafficIntensity()
@@ -47,6 +49,7 @@ namespace PBLWeb.Controllers.API {
         }
 
         [HttpGet("intensity/{latitude:double}/{longitude:double}")]
+        [SwaggerOperation(Summary = "Get traffic intensity information in the region specify by latitude and longitude")]
         public ActionResult<TrafficIntensityViewModel> GetIntensityAt( double latitude, double longitude ) {
             var localization = new CarLocalization(
                 new Coordinate(latitude, longitude)
@@ -57,6 +60,7 @@ namespace PBLWeb.Controllers.API {
         }
 
         [HttpGet("intensity/{latitude:double}/{longitude:double}/{accuracy:int}")]
+        [SwaggerOperation(Summary = "Get traffic intensity information in the region specify by latitude, longitude, and its size specify by accuracy")]
         public ActionResult<TrafficIntensityViewModel> GetIntensityWithAccuracy( double latitude, double longitude, int accuracy ) {
             var localization = new CarLocalization(
                 new Coordinate(latitude, longitude)
@@ -67,6 +71,7 @@ namespace PBLWeb.Controllers.API {
         }
 
         [HttpGet("cars")]
+        [SwaggerOperation(Summary = "Get all cars")]
         public ActionResult<IEnumerable<ICarData>> GetAllCars() {
             return new List<ICarData>(
                 _Integrator.GetTrafficIntensity().GetCars()
@@ -74,6 +79,7 @@ namespace PBLWeb.Controllers.API {
         }
 
         [HttpGet("cars/{latitude:double}/{longitude:double}")]
+        [SwaggerOperation(Summary = "Get cars from the region specify by latitude and longitude")]
         public ActionResult<IEnumerable<ICarData>> GetCarsAt( double latitude, double longitude ) {
             var localization = new CarLocalization(
                 new Coordinate(latitude, longitude)
@@ -84,6 +90,7 @@ namespace PBLWeb.Controllers.API {
         }
 
         [HttpGet("cars/{latitude:double}/{longitude:double}/{accuracy:int}")]
+        [SwaggerOperation(Summary = "Get cars from the region specify by latitude, longitude, and its size specify by accuracy")]
         public ActionResult<IEnumerable<ICarData>> GetCarsWithAccuracy( double latitude, double longitude, int accuracy ) {
             var localization = new CarLocalization(
                 new Coordinate(latitude, longitude)

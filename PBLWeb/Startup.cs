@@ -28,6 +28,15 @@ namespace PBLWeb {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices( IServiceCollection services ) {
+            services.AddSwaggerGen(config => {
+                config.SwaggerDoc("1.0", new Microsoft.OpenApi.Models.OpenApiInfo { 
+                    Title = "Traffic Integrator API",
+                    Version = "1.0",
+                    Description = "Result API of integrating traffic suppliers APIs"
+                });
+                config.EnableAnnotations();
+            });
+
             services.AddControllersWithViews();
             services.AddApiVersioning();
             services.AddHttpClient();
@@ -65,6 +74,11 @@ namespace PBLWeb {
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(config => {
+                config.SwaggerEndpoint("/swagger/1.0/swagger.json", "Traffic Integrator API");
+            });
 
             app.UseRouting();
 

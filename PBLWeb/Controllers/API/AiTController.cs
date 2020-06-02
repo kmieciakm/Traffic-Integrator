@@ -13,6 +13,7 @@ namespace PBLWeb.Controllers.API
 {
     [ApiVersion("1.0")]
     [Route("api/{v:apiVersion}/[controller]")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     [ApiController]
     public class AiTController : ControllerBase, ISupplierController {
         private SupplierService<AiT> _AiTService { get; }

@@ -12,6 +12,7 @@ using Supplier.Model;
 namespace PBLWeb.Controllers.API {
     [ApiVersion("1.0")]
     [Route("api/{v:apiVersion}/[controller]")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     [ApiController]
     public class YanosikController : ControllerBase, ISupplierController {
         private SupplierService<Yanosik> _YanosikService { get; set; }
