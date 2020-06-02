@@ -8,6 +8,6 @@ namespace Integrator {
     public interface ITrafficSupplier {
         IEnumerable<CarData> Cars { get; }
         IEnumerable<CarData> GetCarsAt(ILocalization localization);
-        IEnumerable<CarData> GetCarsWithAccuracy(ILocalization localization, float accuracy);
+        IEnumerable<CarData> GetCarsWithAccuracy(ILocalization localization, int accuracy);
     }
 }
