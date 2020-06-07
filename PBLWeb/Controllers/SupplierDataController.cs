@@ -23,19 +23,19 @@ namespace PBLWeb.Controllers
             _SupplierRepo = supplierRepo;
         }
 
-        // GET: SupplierDatas
+        // GET: SupplierData
         public IActionResult Index()
         {
             return View(_SupplierRepo.GetSuppliers());
         }
 
-        // GET: SupplierDatas/Create
+        // GET: SupplierData/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: SupplierDatas/Create
+        // POST: SupplierData/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create( [Bind("Id,Name,ApiUrl")] SupplierData supplierData ) {
@@ -59,7 +59,7 @@ namespace PBLWeb.Controllers
             }
         }
 
-        // GET: SupplierDatas/Edit/5
+        // GET: SupplierData/Edit/5
         public IActionResult Edit( int id ) {
             if (!_SupplierRepo.Exists(id)) {
                 return NotFound();
@@ -69,7 +69,7 @@ namespace PBLWeb.Controllers
             }
         }
 
-        // POST: SupplierDatas/Edit/5
+        // POST: SupplierData/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit( int id, [Bind("Id,Name,ApiUrl")] SupplierData supplierData ) {
@@ -95,7 +95,7 @@ namespace PBLWeb.Controllers
             return View(supplierData);
         }
 
-        // GET: SupplierDatas/Delete/5
+        // GET: SupplierData/Delete/5
         public IActionResult Delete( int id ) {
             if (!_SupplierRepo.Exists(id)) {
                 return NotFound();
@@ -105,7 +105,7 @@ namespace PBLWeb.Controllers
             }
         }
 
-        // POST: SupplierDatas/Delete/5
+        // POST: SupplierData/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed( int id ) {

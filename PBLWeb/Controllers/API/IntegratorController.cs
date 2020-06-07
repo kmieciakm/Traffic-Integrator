@@ -51,7 +51,7 @@ namespace PBLWeb.Controllers.API {
         [HttpGet("intensity/{latitude:double}/{longitude:double}")]
         [SwaggerOperation(Summary = "Get traffic intensity information in the region specify by latitude and longitude")]
         public ActionResult<TrafficIntensityViewModel> GetIntensityAt( double latitude, double longitude ) {
-            var localization = new CarLocalization(
+            var localization = new PlaceLocalization(
                 new Coordinate(latitude, longitude)
             );
             return new TrafficIntensityViewModel(
@@ -62,7 +62,7 @@ namespace PBLWeb.Controllers.API {
         [HttpGet("intensity/{latitude:double}/{longitude:double}/{accuracy:int}")]
         [SwaggerOperation(Summary = "Get traffic intensity information in the region specify by latitude, longitude, and its size specify by accuracy")]
         public ActionResult<TrafficIntensityViewModel> GetIntensityWithAccuracy( double latitude, double longitude, int accuracy ) {
-            var localization = new CarLocalization(
+            var localization = new PlaceLocalization(
                 new Coordinate(latitude, longitude)
             );
             return new TrafficIntensityViewModel(
@@ -81,7 +81,7 @@ namespace PBLWeb.Controllers.API {
         [HttpGet("cars/{latitude:double}/{longitude:double}")]
         [SwaggerOperation(Summary = "Get cars from the region specify by latitude and longitude")]
         public ActionResult<IEnumerable<ICarData>> GetCarsAt( double latitude, double longitude ) {
-            var localization = new CarLocalization(
+            var localization = new PlaceLocalization(
                 new Coordinate(latitude, longitude)
             );
             return new List<ICarData>(
@@ -92,7 +92,7 @@ namespace PBLWeb.Controllers.API {
         [HttpGet("cars/{latitude:double}/{longitude:double}/{accuracy:int}")]
         [SwaggerOperation(Summary = "Get cars from the region specify by latitude, longitude, and its size specify by accuracy")]
         public ActionResult<IEnumerable<ICarData>> GetCarsWithAccuracy( double latitude, double longitude, int accuracy ) {
-            var localization = new CarLocalization(
+            var localization = new PlaceLocalization(
                 new Coordinate(latitude, longitude)
             );
             return new List<ICarData>(

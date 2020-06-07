@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Integrator.TrafficIntensity {
     public interface ITrafficIntensity {
         int Accuracy { get; }
-        ILocalization SeedPoint { get; }
+        PlaceLocalization SeedPoint { get; }
 
         double GetAverageSpeed();
         IEnumerable<ICarData> GetCars();
