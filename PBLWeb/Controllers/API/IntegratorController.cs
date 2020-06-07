@@ -42,30 +42,30 @@ namespace PBLWeb.Controllers.API {
 
         [HttpGet("intensity")]
         [SwaggerOperation(Summary = "Get all cars and additional analysis information")]
-        public ActionResult<TrafficIntensityViewModel> GetIntensity() {
-            return new TrafficIntensityViewModel(
+        public ActionResult<TrafficIntensityVM> GetIntensity() {
+            return TrafficMapper.TrafficIntensityToViewModel(
                 _Integrator.GetTrafficIntensity()
             );
         }
 
         [HttpGet("intensity/{latitude:double}/{longitude:double}")]
         [SwaggerOperation(Summary = "Get traffic intensity information in the region specify by latitude and longitude")]
-        public ActionResult<TrafficIntensityViewModel> GetIntensityAt( double latitude, double longitude ) {
+        public ActionResult<TrafficIntensityVM> GetIntensityAt( double latitude, double longitude ) {
             var localization = new PlaceLocalization(
                 new Coordinate(latitude, longitude)
             );
-            return new TrafficIntensityViewModel(
+            return TrafficMapper.TrafficIntensityToViewModel(
                 _Integrator.GetTrafficIntensityAt(localization)
             );
         }
 
         [HttpGet("intensity/{latitude:double}/{longitude:double}/{accuracy:int}")]
         [SwaggerOperation(Summary = "Get traffic intensity information in the region specify by latitude, longitude, and its size specify by accuracy")]
-        public ActionResult<TrafficIntensityViewModel> GetIntensityWithAccuracy( double latitude, double longitude, int accuracy ) {
+        public ActionResult<TrafficIntensityVM> GetIntensityWithAccuracy( double latitude, double longitude, int accuracy ) {
             var localization = new PlaceLocalization(
                 new Coordinate(latitude, longitude)
             );
-            return new TrafficIntensityViewModel(
+            return TrafficMapper.TrafficIntensityToViewModel(
                 _Integrator.GetTrafficIntensityWithAccuracy(localization, accuracy)
             );
         }

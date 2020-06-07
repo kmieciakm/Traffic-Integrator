@@ -1,4 +1,4 @@
-﻿@model TrafficIntensityViewModel
+﻿@model TrafficIntensityVM
 
 @{
     ViewData["Title"] = "Index";
@@ -7,7 +7,7 @@
 <h1>Get Traffic</h1>
 <hr />
 
-<partial name="_TrafficSearchForm" model="new TrafficSearchViewModel()" ) />
+<partial name="_TrafficSearchForm" model="new TrafficSearchVM()" ) />
 
 @if (Model == null) {
 

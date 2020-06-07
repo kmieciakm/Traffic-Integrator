@@ -28,8 +28,8 @@ namespace PBLWeb.Controllers {
         }
 
         // POST
-        public ActionResult SearchTraffic(TrafficSearchViewModel searchModel) {
-            _logger.LogInformation("Searched traffic at {lat}, {long} with accuracy {acc}",
+        public ActionResult SearchTraffic(TrafficSearchVM searchModel) {
+            _logger.LogInformation("Requested traffic at {lat}, {long} with accuracy {acc}",
                 searchModel.Latitude, searchModel.Longitude, searchModel.Accuracy);
 
             var request = new HttpRequestMessage(HttpMethod.Get,
@@ -39,9 +39,8 @@ namespace PBLWeb.Controllers {
 
             if (response.IsSuccessStatusCode) {
                 string json = response.Content.ReadAsStringAsync().Result;
-                var data = JsonConvert.DeserializeObject<TrafficIntensityCreateViewModel>(json);
-                var traffic = TrafficMapper.TrafficCreateModelToTrafficIntensity(data);
-                return View("Index", new TrafficIntensityViewModel(traffic));
+                var traffic = JsonConvert.DeserializeObject<TrafficIntensityVM>(json);
+                return View("Index", traffic);
             }
 
             return View("Index", null);
