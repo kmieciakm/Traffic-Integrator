@@ -12,7 +12,9 @@ namespace PBLWeb.Models {
         public List<CarData> Cars { get; set;  }
         public PlaceLocalization SeedPoint { get; set; }
         public int Accuracy { get; set; }
+        [Display(Name = "Cars amount")]
         public int CarsAmount { get; set; }
+        [Display(Name = "Average Speed")]
         public double AverageSpeed { get; set; }
     }
 

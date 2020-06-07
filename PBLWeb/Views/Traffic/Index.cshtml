@@ -12,10 +12,9 @@
 @if (Model == null) {
 
 } else {
-
     <div class="row mx-auto text-white">
         <div class="card-deck mx-auto justify-content-between">
-            <div class="card bg-success">
+            <div class="card bg-info">
                 <div class="card-body text-center">
                     <h2 class="card-title w-100" style="font-size: 2rem;">@Model.CarsAmount</h2>
                     <p class="card-text">@Html.DisplayNameFor(model => model.CarsAmount)</p>
@@ -30,9 +29,47 @@
         </div>
     </div>
 
-    <ul>
+    <div class="m-2">
         @foreach (var car in Model.Cars) {
-            <li>@car.ToString();</li>
+            <i class="fa fa-car car-icon m-1 p-2" aria-hidden="true" type="button" data-toggle="modal" data-target="#carModal"></i>
+
+            <!-- Modal -->
+            <div class="modal fade" id="carModal" tabindex="-1" role="dialog" aria-labelledby="carModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Car</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="list-group m-2">
+                                <li class="list-group-item list-group-item-success">Localization</li>
+                                <li class="list-group-item">Latitude: @car.Localization.Coordinate.Latitude</li>
+                                <li class="list-group-item">Longitude: @car.Localization.Coordinate.Longitude</li>
+                            </ul>
+                            <ul class="list-group m-2">
+                                <li class="list-group-item list-group-item-warning">Starting Point</li>
+                                <li class="list-group-item">Latitude: @car.StartingPoint.Coordinate.Latitude</li>
+                                <li class="list-group-item">Longitude: @car.StartingPoint.Coordinate.Longitude</li>
+                            </ul>
+                            <ul class="list-group m-2">
+                                <li class="list-group-item list-group-item-warning">Ending Point</li>
+                                <li class="list-group-item">Latitude: @car.EndingPoint.Coordinate.Latitude</li>
+                                <li class="list-group-item">Longitude: @car.EndingPoint.Coordinate.Longitude</li>
+                            </ul>
+                            <ul class="list-group m-2">
+                                <li class="list-group-item list-group-item-info">Speed</li>
+                                <li class="list-group-item">Speed: @car.Speed mph</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         }
-    </ul>
+    </div>
 }
