@@ -4,15 +4,14 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Get Traffic</h1>
-<hr />
+<h1 class="text-center">Get Traffic</h1>
 
+<hr />
 <partial name="_TrafficSearchForm" model="new TrafficSearchVM()" ) />
 
-@if (Model == null) {
-
-} else {
-    <div class="row mx-auto text-white">
+<hr />
+@if (Model != null) {
+    <div class="row mx-auto text-white m-3">
         <div class="card-deck mx-auto justify-content-between">
             <div class="card bg-info">
                 <div class="card-body text-center">
@@ -72,4 +71,53 @@
             </div>
         }
     </div>
+}
+
+@section Scripts {
+    <script>
+        function initMap() {
+            var options = {
+                zoom: 14,
+                center: {
+                    lat: 51.75216,
+                    lng: 19.45282
+                }
+            }
+
+            // map inside partial view
+            var map = new google.maps.Map(document.getElementById('map'), options);
+            var markers = [];
+
+            google.maps.event.addListener(map, 'click', event => {
+                addMarker({ coords: event.latLng });
+            });
+
+            function addMarker(props) {
+                clearMarkers();
+                var marker = new google.maps.Marker({
+                    position: props.coords,
+                    map: map,
+                });
+
+                let markerLat = marker.position.lat().toFixed(5);
+                let markerLng = marker.position.lng().toFixed(5);
+
+                // inputs inside partial view
+                document.getElementById("latitude").value = markerLat;
+                document.getElementById("longitude").value = markerLng;
+
+                console.log(document.getElementById("latitude"));
+                markers.push(marker);
+            }
+
+            function clearMarkers() {
+                for (var i = 0; i < markers.length; i++) {
+                    markers[i].setMap(null);
+                }
+                markers = [];
+            }
+        }
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx8KOGSLQ0HaX4rfESK0TPcIiPuTldVyM&callback=initMap"></script>
 }
