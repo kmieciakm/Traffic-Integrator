@@ -2,46 +2,271 @@
     {
         "GPSCoordinates": {
             "Longitude": {
-                "Degree": 12,
-                "Minute": 34,
-                "Second": 6.3984,
-                "Compass": 2
+                "Degree": 19,
+                "Minute": 26,
+                "Second": 54.5856,
+                "Compass": 0
             },
             "Latitude": {
-                "Degree": 3,
-                "Minute": 12,
-                "Second": 45.23,
-                "Compass": 0
+                "Degree": 51,
+                "Minute": 45,
+                "Second": 28.3644,
+                "Compass": 2
             }
         },
         "StartingPoint": {
             "Longitude": {
-                "Degree": 12,
-                "Minute": 34,
-                "Second": 6.3984,
-                "Compass": 2
+                "Degree": 19,
+                "Minute": 25,
+                "Second": 54.1856,
+                "Compass": 0
             },
             "Latitude": {
-                "Degree": 3,
-                "Minute": 12,
-                "Second": 45.23,
-                "Compass": 0
+                "Degree": 51,
+                "Minute": 46,
+                "Second": 30.3644,
+                "Compass": 2
             }
         },
         "EndingPoint": {
             "Longitude": {
-                "Degree": 12,
-                "Minute": 34,
-                "Second": 6.3984,
-                "Compass": 2
+                "Degree": 19,
+                "Minute": 25,
+                "Second": 54.0056,
+                "Compass": 0
             },
             "Latitude": {
-                "Degree": 3,
-                "Minute": 12,
-                "Second": 45.23,
-                "Compass": 0
+                "Degree": 51,
+                "Minute": 44,
+                "Second": 28.3644,
+                "Compass": 2
             }
         },
         "Speed": 24.8
+    },
+    {
+        "GPSCoordinates": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 26,
+                "Second": 54.5872,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 51,
+                "Minute": 45,
+                "Second": 28.3613,
+                "Compass": 2
+            }
+        },
+        "StartingPoint": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 24,
+                "Second": 54.13133,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 51,
+                "Minute": 46.12,
+                "Second": 30.3900,
+                "Compass": 2
+            }
+        },
+        "EndingPoint": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 25,
+                "Second": 54.0056,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 56,
+                "Minute": 52,
+                "Second": 45.3644,
+                "Compass": 2
+            }
+        },
+        "Speed": 20.13
+    },
+    {
+        "GPSCoordinates": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 26,
+                "Second": 54.5840,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 51,
+                "Minute": 45,
+                "Second": 28.3682,
+                "Compass": 2
+            }
+        },
+        "StartingPoint": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 25,
+                "Second": 58.23,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 51,
+                "Minute": 49,
+                "Second": 30.24,
+                "Compass": 2
+            }
+        },
+        "EndingPoint": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 25,
+                "Second": 58.1,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 51,
+                "Minute": 44,
+                "Second": 28.0000,
+                "Compass": 2
+            }
+        },
+        "Speed": 19.3
+    },
+    {
+        "GPSCoordinates": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 26,
+                "Second": 54.5811,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 51,
+                "Minute": 45,
+                "Second": 28.3611,
+                "Compass": 2
+            }
+        },
+        "StartingPoint": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 25,
+                "Second": 56.32,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 51,
+                "Minute": 46,
+                "Second": 31.9832,
+                "Compass": 2
+            }
+        },
+        "EndingPoint": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 25,
+                "Second": 52.101,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 51,
+                "Minute": 44,
+                "Second": 26.12,
+                "Compass": 2
+            }
+        },
+        "Speed": 21.9
+    },
+    {
+        "GPSCoordinates": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 26,
+                "Second": 54.5862,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 51,
+                "Minute": 45,
+                "Second": 28.3643,
+                "Compass": 2
+            }
+        },
+        "StartingPoint": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 22,
+                "Second": 59.1856,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 51,
+                "Minute": 43,
+                "Second": 18.3644,
+                "Compass": 2
+            }
+        },
+        "EndingPoint": {
+            "Longitude": {
+                "Degree": 18,
+                "Minute": 25,
+                "Second": 59.0056,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 52,
+                "Minute": 44,
+                "Second": 29.92,
+                "Compass": 2
+            }
+        },
+        "Speed": 13.4
+    },
+    {
+        "GPSCoordinates": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 26,
+                "Second": 54.5812,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 51,
+                "Minute": 45,
+                "Second": 28.3672,
+                "Compass": 2
+            }
+        },
+        "StartingPoint": {
+            "Longitude": {
+                "Degree": 19,
+                "Minute": 22,
+                "Second": 58.1856,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 51,
+                "Minute": 42,
+                "Second": 20.45,
+                "Compass": 2
+            }
+        },
+        "EndingPoint": {
+            "Longitude": {
+                "Degree": 18,
+                "Minute": 22,
+                "Second": 39.09,
+                "Compass": 0
+            },
+            "Latitude": {
+                "Degree": 52,
+                "Minute": 48,
+                "Second": 27.17,
+                "Compass": 2
+            }
+        },
+        "Speed": 6.54
     }
 ]

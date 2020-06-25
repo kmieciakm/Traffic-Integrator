@@ -3,6 +3,17 @@ for details on configuring this project to bundle and minify static web assets. 
 
 /* Custom */
 
+.car-icon {
+    font-size: 5rem;
+    color: springgreen;
+    border: 3px solid transparent;
+}
+
+    .car-icon:hover {
+        cursor: pointer;
+        border: 3px solid springgreen;
+    }
+
 .description {
     font-size: 2rem;
 }

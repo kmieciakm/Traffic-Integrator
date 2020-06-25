@@ -23,10 +23,10 @@ namespace Integrator.TrafficIntensity {
             foreach (var supplier in _Suppliers) {
                 allCars.AddRange(supplier.Cars);
             }
-            return new TrafficIntensity(new CarLocalization(new Coordinate(0, 0)), DefaultAccuracy, allCars);
+            return new TrafficIntensity(new PlaceLocalization(new Coordinate(0, 0)), DefaultAccuracy, allCars);
         }
 
-        public TrafficIntensity GetTrafficIntensityAt( ILocalization localization ) {
+        public TrafficIntensity GetTrafficIntensityAt( PlaceLocalization localization ) {
             List<ICarData> allCars = new List<ICarData>();
             foreach (var supplier in _Suppliers) {
                 allCars.AddRange(supplier.GetCarsAt(localization));
@@ -34,7 +34,7 @@ namespace Integrator.TrafficIntensity {
             return new TrafficIntensity(localization, DefaultAccuracy, allCars);
         }
 
-        public TrafficIntensity GetTrafficIntensityWithAccuracy( ILocalization localization, int accuracy ) {
+        public TrafficIntensity GetTrafficIntensityWithAccuracy( PlaceLocalization localization, int accuracy ) {
             List<ICarData> allCars = new List<ICarData>();
             foreach (var supplier in _Suppliers) {
                 allCars.AddRange(supplier.GetCarsWithAccuracy(localization, accuracy));
