@@ -21,7 +21,7 @@
             </div>
             <div class="card bg-info">
                 <div class="card-body text-center">
-                    <h2 class="card-title w-100" style="font-size: 2rem;">@Model.AverageSpeed</h2>
+                    <h2 class="card-title w-100" style="font-size: 2rem;">@Math.Round(Model.AverageSpeed, 2)</h2>
                     <p class="card-text">@Html.DisplayNameFor(model => model.AverageSpeed)</p>
                 </div>
             </div>
@@ -29,11 +29,12 @@
     </div>
 
     <div class="m-2">
-        @foreach (var car in Model.Cars) {
-            <i class="fa fa-car car-icon m-1 p-2" aria-hidden="true" type="button" data-toggle="modal" data-target="#carModal"></i>
+        @for (int i = 0; i < Model.Cars.Count; i++) {
+                var car = Model.Cars.ElementAt(i);
+            <i class="fa fa-car car-icon m-1 p-2" aria-hidden="true" type="button" data-toggle="modal" data-target="#carModal@(i)"></i>
 
             <!-- Modal -->
-            <div class="modal fade" id="carModal" tabindex="-1" role="dialog" aria-labelledby="carModal" aria-hidden="true">
+            <div class="modal fade" id="carModal@(i)" tabindex="-1" role="dialog" aria-labelledby="carModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
